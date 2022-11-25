@@ -1,0 +1,2 @@
+# Wills
+In this project, a will smart contract which can be used to share digital assets. Highly customisable. Feel free to contact me on my social media handle @muhacolee4 for contribution and modification to the smart contract. It is totally free.
