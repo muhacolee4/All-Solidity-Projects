@@ -23,7 +23,7 @@ contract wills{
         familyWallets.push(wallet);
         inheritance[wallet]=amount;
     }
-    function payout () public payable mustBeDeceased{
+    function payout () private payable mustBeDeceased{
         for (uint i=0; i<familyWallets.length; i++){
             familyWallets[i].transfer(inheritance[familyWallets[i]]);
 
