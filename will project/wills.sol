@@ -1,4 +1,4 @@
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 contract wills{
     address owner;
     uint fortune;
@@ -7,6 +7,7 @@ contract wills{
         fortune=msg.value;
         owner=msg.sender;
         deceased=false;
+
 
     }
     modifier onlyOwner() {
