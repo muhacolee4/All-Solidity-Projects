@@ -100,6 +100,9 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+rounded-tl-sm {
+  border-top-left-radius: 100px; /* Adjust the radius as needed */
+}
 
 @tailwind base;
 @tailwind components;

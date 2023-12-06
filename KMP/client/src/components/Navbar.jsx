@@ -4,6 +4,7 @@ import logo from "../../images/logo.png";
 import React from "react";
 
 // eslint-disable-next-line react/prop-types
+const connectWallet = () => {};
 const NavBarItem = ({ title, classprops }) => (
   <li className={`mx-4 cursor-pointer ${classprops}`}>{title}</li>
 );
@@ -21,6 +22,13 @@ const Navbar = () => {
         <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
           Login
         </li>
+        <button
+          type="button"
+          onClick={connectWallet}
+          className="flex flex-row justify-center items-center my-2 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+        >
+          <p className="text-white text-base font-semibold">Connect Wallet</p>
+        </button>
       </ul>
       <div className="flex relative">
         {!toggleMenu && (
