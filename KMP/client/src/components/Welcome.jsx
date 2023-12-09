@@ -1,23 +1,13 @@
 import React, { useContext } from "react";
+import { TransactionContext } from "../context/TransactionContext";
 const isLoading = {};
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import Loader from "./Loader";
-const connectWallet = () => {};
 const companyCommonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
-const handleChange = () => {};
 
-const handleSubmit = (e) => {
-  const { addressTo, amount, keyword, message } = formData;
-
-  e.preventDefault();
-
-  if (!addressTo || !amount || !keyword || !message) return;
-
-  sendTransaction();
-};
 const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
     placeholder={placeholder}
@@ -29,6 +19,24 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
   />
 );
 const Welcome = () => {
+  const {
+    currentAccount,
+    formData,
+    sendTransaction,
+    handleChange,
+    setAlert,
+    isLoading,
+  } = useContext(TransactionContext);
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
+
+    e.preventDefault();
+
+    if (!addressTo || !amount || !keyword || !message) return;
+
+    sendTransaction();
+  };
+
   return (
     <div className=" flex w-full items-center p-4">
       <div className="grid md:grid-cols-2 sm:grid-cols-1 md:border gap-x-10 rounded-tl-sm justify-inbetween p-4">
@@ -74,7 +82,11 @@ const Welcome = () => {
               id="render_addr"
               className="flex flex-start flex-col items-start"
             >
-              <p>0x......9af80</p>
+              <p className=" text-white">
+                Address:
+                {currentAccount.slice(0, 5)}.....
+                {currentAccount.slice(-5)}
+              </p>
               <p className="text-bold text-white text-left">
                 CryptoEase Ethereum
               </p>
